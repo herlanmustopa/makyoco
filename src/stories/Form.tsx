@@ -114,12 +114,13 @@ export const Form = ({
           {withSearch && (
               <span className="material-icons text-gray-500">search</span>
             )}
-              <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-2 py-1 text-black focus:border-white"
-            />
+         <input
+  type="text"
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="w-full px-2 py-1 text-black focus:outline-none focus:ring-0 focus:border-transparent"
+/>
+
             {searchTerm && <span className="material-icons text-gray-300 bg-gray-100 rounded-full cursor-pointer"
                 onClick={()=>setSearchTerm("")}
             >close</span>}

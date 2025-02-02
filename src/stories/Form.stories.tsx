@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import {Form} from "./Form";
 
 export default {
-  title: "Form",
+  title: "Form Testing",
   component: Form,
   argTypes: {
     multiple: {
@@ -34,5 +34,15 @@ SelectDropdownField.args = {
   ],
   multiple: false,
   withSearch: true,
-  outlined: false
+  outlined: false,
+  renderOption: (option, isSelected) => (
+    <div className="flex items-center gap-2">
+      <span
+        className={`material-icons ${isSelected ? "text-blue-600" : "text-gray-400"}`}
+      >
+        check_circle
+      </span>
+      <span>{option.label}</span>
+    </div>
+  ),
 };
