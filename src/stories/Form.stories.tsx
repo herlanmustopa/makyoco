@@ -5,6 +5,7 @@ import {Form} from "./Form";
 export default {
   title: "Form Testing",
   component: Form,
+
   argTypes: {
     multiple: {
         control: "boolean"
@@ -16,7 +17,28 @@ export default {
         control: "boolean"
     }
   },
-//   decorators: []
+  decorators: [
+    (Story) => (
+        <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "flex-start",
+          padding: "20px",
+          background: "#f9f9f9",
+          borderRadius: "0px",
+          boxSizing: "border-box",
+        }}
+      >
+        <Story />
+      </div>
+
+    ),
+  ],
 } as Meta<typeof Form>;
 
 const Template: StoryFn<typeof Form> = (args) => <Form {...args} />;
