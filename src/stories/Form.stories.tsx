@@ -57,14 +57,4 @@ SelectDropdownField.args = {
   multiple: false,
   withSearch: true,
   outlined: false,
-  renderOption: (option, isSelected) => (
-    <div className="flex items-center gap-2">
-      <span
-        className={`material-icons ${isSelected ? "text-blue-600" : "text-gray-400"}`}
-      >
-        check_circle
-      </span>
-      <span>{option.label}</span>
-    </div>
-  ),
 };

@@ -1,50 +1,100 @@
-# React + TypeScript + Vite
+## Storybook Usage Instructions By Herlan Mustopa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses **Storybook** to technical test in Makyo Co. And this documentations about step by step you can install and running this project.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **1. Installing Storybook**
 
-## Expanding the ESLint configuration
+If Storybook is not already installed in your project, you can add it by running:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npx storybook@latest init
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This command will:
+- Configure Storybook for your project.
+- Add the necessary dependencies and scripts to your `package.json`.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### **2. Running Storybook**
+
+To start the Storybook development server, run:
+
+```bash
+npm run storybook
 ```
+
+Once started, Storybook will open automatically in your default browser. If it doesn’t, you can manually access it at:
+
+```
+http://localhost:6006
+```
+
+---
+
+### **3. Component Stories**
+
+The stories for the `Form` component are located in:
+
+```bash
+src/components/Form.stories.tsx
+```
+
+### **4. Interacting with the Component**
+
+In Storybook:
+1. Navigate to the `Form` component story under the **Form** section.
+2. Use the **Controls** panel to dynamically adjust props like:
+   - **`label`**: Customize the label text.
+   - **`multiple`**: Enable or disable multiple selection.
+   - **`outlined`**: Toggle the outlined style.
+   - **`withSearch`**: Enable or disable the search bar.
+3. Interact with the dropdown and observe the real-time changes.
+
+---
+
+### **5. Adding More Stories**
+
+You can add additional variations of the `Form` component to test specific scenarios.
+
+#### **Without Search Example**
+```tsx
+export const WithoutSearch = Template.bind({});
+WithoutSearch.args = {
+    label: "Label",
+    options: [
+        { label: "🍌", value: "banana" },
+        { label: "🍎", value: "apple" },
+        { label: "🍓", value: "strawbery" },
+      ],
+  withSearch: false,
+};
+
+```
+
+---
+
+### **6. Building Storybook for Deployment**
+
+To build Storybook for production deployment, run:
+
+```bash
+npm run build-storybook
+```
+
+This will generate a `storybook-static` folder in your project root. You can deploy this folder to any static hosting platform like **Vercel**, **Netlify**, or **GitHub Pages**.
+
+---
+
+### **7. Troubleshooting**
+
+If you encounter issues:
+- **Storybook doesn’t start**: Ensure all required dependencies are installed.
+- **Component doesn’t render**: Check that your story file is correctly named (`*.stories.tsx`) and your component is properly imported.
+- **Props don’t update**: Ensure `argTypes` are defined correctly in your story.
+
+---
+
+Now you’re ready to use Storybook to test and explore your `Form` component! If you have any questions or need further assistance, feel free to reach out. 🚀
