@@ -116,9 +116,10 @@ export const Form = ({
 
           {isOpen && (
             <div className="absolute mt-2 border border-gray-300 bg-white rounded shadow-lg w-full max-h-60 overflow-y-auto z-20">
-              {withSearch && (
                 <div className="px-3 py-2 flex items-center border-b border-gray-100">
+                    {withSearch && (
                   <span className="material-icons text-gray-500">search</span>
+                    )}
                   <input
                     type="text"
                     value={searchTerm}
@@ -135,7 +136,6 @@ export const Form = ({
                     </span>
                   )}
                 </div>
-              )}
               <ul className="py-2">
                 {options.length > 0 ? (
                   options.map((option) => (
