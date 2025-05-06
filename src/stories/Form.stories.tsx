@@ -1,6 +1,4 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import {Form} from "./Form";
+import { Meta, StoryFn } from "@storybook/react";import {Form} from "./Form";
 
 export default {
   title: "Form Testing",
