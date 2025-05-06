@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "build-storybook -o storybook-static"
+    "build-storybook": "storybook build --output-dir storybook-static"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.3",
